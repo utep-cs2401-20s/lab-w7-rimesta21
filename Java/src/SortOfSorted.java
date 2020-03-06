@@ -8,16 +8,15 @@ public class SortOfSorted {
         int index = 0;
         int end = 0;
         int start = 0;
-        int tracker = 0;
         int temp = 0;
 
-        for(int i = 0; i < a.length; i++){
-            for(int k = start + 1; k < a.length - end; k++){
+        for(int i = 0; i < a.length - 1; i++){
+            for(int k = start + 1; k < a.length  - end; k++){
                 if(a[index] < a[k]){
                     index = k;
                 }
             }
-            if(tracker == 2 || tracker == 3){
+            if(i % 4 == 2 || i % 4 == 3){
                 temp = a[start];
                 a[start] = a[index];
                 a[index] = temp;
@@ -29,10 +28,6 @@ public class SortOfSorted {
                 end++;
             }
             index = start;
-            tracker++;
-            if(tracker == 4){
-                tracker = 0;
-            }
         }
     }
 }
